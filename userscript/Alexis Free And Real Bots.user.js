@@ -284,7 +284,7 @@ window.connection = {
                 break
             case 1:
                 document.getElementById('stopBots').disabled = true
-                var timer = 30, // timer in seconds
+                var timer = 10, // timer in seconds
                 isTimerStarted = false;
 
                 (function customSwal() {
