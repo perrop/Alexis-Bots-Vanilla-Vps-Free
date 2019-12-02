@@ -41,8 +41,11 @@ requester("http://ex-script.com/fstyle/fb/msg", (err, req, data) => {
     data && data.split("\n")[0] == "1" && console.log(data);
 })
 
-logger.good(`[SERVER] Running version ${config.server.version} on port ${config.server.port}`)
-
+logger.good(`[SERVER] Running version ${config.server.version} on port ${config.server.port}
+[AA]Alexis_X#5882
+Bots Vanilla Vps Free 
+Like / Suscribe Mi channel..!
+`);
 const game = {
     url: '',
     protocolVersion: 0,
