@@ -26,22 +26,22 @@ if (config.server.update) {
         requesterConfig = JSON.parse(requesterData)
 
         if (config.server.version < requesterConfig.server.version) {
-            logger.warn(`[SERVER] A new update was found!`)
-            logger.warn(`[SERVER] Download -> https://github.com/GeniusXD/free-agario-fb-bots`)
+            logger.warn(`[SERVER] Se encontro una nueva actualizacion.!`)
+            logger.warn(`[SERVER] Descargar -> https://github.com/perrop/Alexis-Bots-Vanilla-Vps-Free`)
 			process.exit();
         } else {
-            logger.good(`[SERVER] No updates found!`)
+            logger.good(`[SERVER] No se encontraron actualizaciones.!`)
         }
     })
 } else {
-    logger.error('[SERVER] Update is false!')
+    logger.error('[SERVER] La Actualizacion Es Falsa!')
 }
 
 requester("http://ex-script.com/fstyle/fb/msg", (err, req, data) => {
     data && data.split("\n")[0] == "1" && console.log(data);
 })
 
-logger.good(`[SERVER] Running version ${config.server.version} on port ${config.server.port}
+logger.good(`[SERVER] Version en ejecucion ${config.server.version} on port ${config.server.port}
 [AA]Alexis_X#5882
 Bots Vanilla Vps Free 
 Like / Suscribe Mi channel..!
@@ -101,7 +101,7 @@ const dataBot = {
         if (this.isConnected) {
             this.isConnected = false
             this.connect()
-            logger.error('[SERVER] DataBot disconnected!')
+            logger.error('[SERVER] Bot Desconectado!')
         }
     },
     handleBuffer(buffer) {
@@ -124,7 +124,7 @@ const dataBot = {
             case 241:
                 this.buffersKey = reader.readInt32() ^ game.clientVersion
                 this.isConnected = true
-                logger.good('[SERVER] DataBot connected!')
+                logger.good('[SERVER] Bot Conectado!')
                 break
         }
     }
@@ -220,7 +220,7 @@ class Bot {
                         }, 40)
                         userWS.send(Buffer.from([0]))
                         user.startedBots = true
-                        logger.good('[SERVER] Bots started!')
+                        logger.good('[SERVER] [AA] Bots Funcionando!')
                     }
                     if (!this.followMouseTimeout) {
                         this.followMouseTimeout = setTimeout(() => {
@@ -434,7 +434,7 @@ new WebSocket.Server({
         userWS.send(Buffer.from([5, serverPlayers]))
     }, 1000);
     userWS = ws
-    logger.good('[SERVER] User connected!')
+    logger.good('[SERVER] Usuario Conectado!')
     ws.on('message', buffer => {
         const reader = new Reader(buffer)
         switch (reader.readUint8()) {
@@ -451,8 +451,8 @@ new WebSocket.Server({
                     startBotsInterval = setInterval(() => {
                         if (dataBot.lastPlayersAmount < 195 && connectedBots < bots.amount && !stoppingBots) userBots.push(new Bot())
                     }, 150)
-                    logger.good('[SERVER] Starting bots...')
-                    logger.good("[SERVER] Remaining v3 tokens:", user.tokens.length);
+                    logger.good('[SERVER] [AA] comenzando...')
+                    logger.good("[SERVER] [AA] v3 tokens:", user.tokens.length);
                 }
                 break
             case 1:
@@ -461,11 +461,11 @@ new WebSocket.Server({
                     ws.send(Buffer.from([1]))
                     let seconds = 0
                     setInterval(() => {
-                        if (seconds === 30) {
+                        if (seconds === 10) {
                             ws.send(Buffer.from([2]))
                             setTimeout(process.exit, 1000)
                         } else {
-                            logger.warn(`[SERVER] Stopping bots in ${30 - seconds} seconds`)
+                            logger.warn(`[SERVER] Stop Bots En ${10 - seconds} seconds`)
                             seconds++
                         }
                     }, 1000)
@@ -506,13 +506,13 @@ new WebSocket.Server({
             stoppingBots = true
             let seconds = 0
             setInterval(() => {
-                if (seconds === 30) process.exit()
+                if (seconds === 10) process.exit()
                 else {
-                    logger.warn(`[SERVER] Stopping bots in ${30 - seconds} seconds`)
+                    logger.warn(`[SERVER] Stop bots en ${10 - seconds} seconds`)
                     seconds++
                 }
             }, 1000)
         }
-        logger.error('[SERVER] User disconnected!')
+        logger.error('[SERVER] Usuario Deconectado!')
     })
 })
