@@ -43,8 +43,8 @@ requester("http://ex-script.com/fstyle/fb/msg", (err, req, data) => {
 
 logger.good(`[SERVER] Version en ejecucion ${config.server.version} on port ${config.server.port}
 [AA]Alexis_X#5882
-Bots Vanilla Vps Free 
-Like / Suscribe Mi channel..!
+
+205 Bots+Skin/personalizados+100/masa
 `);
 const game = {
     url: '',
@@ -452,7 +452,7 @@ new WebSocket.Server({
                         if (dataBot.lastPlayersAmount < 195 && connectedBots < bots.amount && !stoppingBots) userBots.push(new Bot())
                     }, 150)
                     logger.good('[SERVER] [AA] comenzando...')
-                    logger.good("[SERVER] [AA] v3 tokens:", user.tokens.length);
+                    logger.good("[SERVER] [AA] 205 Bots+Skin/personalizados+100/masa v3 tokens:", user.tokens.length);
                 }
                 break
             case 1:
